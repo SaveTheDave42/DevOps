@@ -37,4 +37,16 @@ public class WardrobeCombinerTest {
         );
         assertEquals(expectedCombinations, actualCombinations);
     }
+
+    @Test
+    public void test100cm() {
+        WardrobeCombiner wardrobeCombiner = new WardrobeCombiner(300);
+        int[] sizes = {50, 75, 100, 120};
+        List<List<Integer>> actualCombinations = wardrobeCombiner.findCombinations(sizes);
+        List<List<Integer>> expectedCombinations = Arrays.asList(
+            Arrays.asList(50, 50),
+            Arrays.asList(100)
+        );
+        assertEquals(expectedCombinations, actualCombinations);
+    }
 }
