@@ -2,24 +2,23 @@ package ch.zhaw.unittest.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class WardrobeCombiner {
 
-    public static void main(String[] args) {
-        int[] sizes = {50, 75, 100, 120};
-        List<List<Integer>> combinations = findCombinations(sizes, 250);
-        for (List<Integer> combination : combinations) {
-            System.out.println(combination);
-        }
+    private int targetSize;
+
+    public WardrobeCombiner(int targetSize) {
+        this.targetSize = targetSize;
     }
 
-    public static List<List<Integer>> findCombinations(int[] sizes, int target) {
+    public List<List<Integer>> findCombinations(int[] sizes) {
         List<List<Integer>> result = new ArrayList<>();
-        findCombinationsRecursive(sizes, target, new ArrayList<>(), result, 0);
+        findCombinationsRecursive(sizes, targetSize, new ArrayList<>(), result, 0);
         return result;
     }
 
-    private static void findCombinationsRecursive(int[] sizes, int target, List<Integer> current, List<List<Integer>> result, int start) {
+    private void findCombinationsRecursive(int[] sizes, int target, List<Integer> current, List<List<Integer>> result, int start) {
         if (target == 0) {
             result.add(new ArrayList<>(current));
             return;
@@ -33,4 +32,21 @@ public class WardrobeCombiner {
             }
         }
     }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the target size for the wardrobe (in cm): ");
+        int targetSize = scanner.nextInt();
+
+        WardrobeCombiner wardrobeCombiner = new WardrobeCombiner(targetSize);
+        int[] sizes = {50, 75, 100, 120};
+        List<List<Integer>> combinations = wardrobeCombiner.findCombinations(sizes);
+
+        for (List<Integer> combination : combinations) {
+            System.out.println(combination);
+        }
+
+        scanner.close();
+    }
 }
+
