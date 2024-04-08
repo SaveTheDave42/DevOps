@@ -1,0 +1,105 @@
+{
+  "id": "072864a5-f95f-4c8e-8c6e-a15b4285222c",
+  "version": "2.0",
+  "name": "MySQL Login",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "33c0037a-1503-4e2a-8f90-a790413ee208",
+    "name": "MySQL Login",
+    "commands": [{
+      "id": "06c20e52-c773-4150-9e32-0ab0f12e9a2f",
+      "comment": "",
+      "command": "open",
+      "target": "/?server=db",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbdcbf17-7074-4a35-b206-b18ca25c1353",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1039x1232",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b370586f-ae60-4a92-b7d3-ab0403afc4cd",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=auth[username]", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/form/table/tbody/tr[3]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td/input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "4c07c708-a459-4864-a43b-81a61ecd2fbf",
+      "comment": "",
+      "command": "type",
+      "target": "name=auth[password]",
+      "targets": [
+        ["name=auth[password]", "name"],
+        ["css=tr:nth-child(4) input", "css:finder"],
+        ["xpath=//input[@name='auth[password]']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/form/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "960a0a45-acdc-4a18-9ff7-83d7659962f9",
+      "comment": "",
+      "command": "type",
+      "target": "name=auth[db]",
+      "targets": [
+        ["name=auth[db]", "name"],
+        ["css=tr:nth-child(5) input", "css:finder"],
+        ["xpath=//input[@name='auth[db]']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/form/table/tbody/tr[5]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[5]/td/input", "xpath:position"]
+      ],
+      "value": "realestatepredictor"
+    }, {
+      "id": "1802c730-52cd-4a57-83da-5de801a98bb0",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=auth[db]",
+      "targets": [
+        ["name=auth[db]", "name"],
+        ["css=tr:nth-child(5) input", "css:finder"],
+        ["xpath=//input[@name='auth[db]']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/form/table/tbody/tr[5]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[5]/td/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "fd47dbe6-950d-4c59-ab86-bd8869f28337",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=Table-homegate",
+      "targets": [
+        ["id=Table-homegate", "id"],
+        ["linkText=homegate", "linkText"],
+        ["css=#Table-homegate", "css:finder"],
+        ["xpath=//a[contains(text(),'homegate')]", "xpath:link"],
+        ["xpath=//a[@id='Table-homegate']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/form/div/table/tbody/tr/th/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '?server=db&username=user&db=realestatepredictor&table=homegate')]", "xpath:href"],
+        ["xpath=//th/a", "xpath:position"],
+        ["xpath=//a[contains(.,'homegate')]", "xpath:innerText"]
+      ],
+      "value": "homegate"
+    }]
+  }],
+  "suites": [{
+    "id": "ad465304-2e4c-4d9a-ab6c-e7e633de2b24",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["33c0037a-1503-4e2a-8f90-a790413ee208"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
