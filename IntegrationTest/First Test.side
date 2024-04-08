@@ -99,33 +99,6 @@
       ],
       "value": ""
     }, {
-      "id": "fbb2f455-072b-4230-a68b-cb7fcb4090d2",
-      "comment": "",
-      "command": "click",
-      "target": "id=h1",
-      "targets": [
-        ["id=h1", "id"],
-        ["linkText=Adminer", "linkText"],
-        ["css=#h1", "css:finder"],
-        ["xpath=//a[contains(text(),'Adminer')]", "xpath:link"],
-        ["xpath=//a[@id='h1']", "xpath:attributes"],
-        ["xpath=//div[@id='menu']/h1/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'https://www.adminer.org/')]", "xpath:href"],
-        ["xpath=//h1/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Adminer')]", "xpath:innerText"]
-      ],
-      "value": "",
-      "opensWindow": true,
-      "windowHandleName": "win8389",
-      "windowTimeout": 2000
-    }, {
-      "id": "f9542655-72a4-44e5-af40-254aecac5720",
-      "comment": "",
-      "command": "selectWindow",
-      "target": "handle=${win8389}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "4d6a548e-0a2f-4b2c-bd27-13aae17d4126",
       "comment": "",
       "command": "verifyText",
