@@ -30,3 +30,11 @@ tasks.named('test') {
 test {
 	finalizedBy jacocoTestReport // report is always generated after tests
 }
+
+jacocoTestReport {
+	reports {
+		xml.required = true
+		csv.required = false 
+		xml.destination(file("${rootProject.projectDir}/target/site/jacoco/cov.xml"))
+	}
+}
