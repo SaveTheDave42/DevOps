@@ -1,28 +1,29 @@
 version: '3.8'
 
 services:
-   db:
-     image: mysql:8.2.0
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
 
-   wordpress:
-     depends_on:
-       - db
-     image: wordpress:6.4.2-php8.3
-     ports:
-       - "8000:80"
-     restart: always
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-       WORDPRESS_DB_NAME: wordpress
+  db:
+    image: mysql:8.3 #use version 8.3. See https://hub.docker.com/layers/library/mysql/8.3/images/sha256-eeabfa5cd6a2091bf35eb9eae6ae48aab8231fd760f5a61cd0129df454333b1d?context=explore for more information about this version
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecurerootpassword
+      MYSQL_DATABASE: realestatepredictor
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_SSL_MODE: DISABLED
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
 volumes:
-    db_data: {}
+  mysql:
